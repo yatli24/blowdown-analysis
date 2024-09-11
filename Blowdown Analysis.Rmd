@@ -36,7 +36,7 @@ Here, we notice that only d and s are valid predictors, as they represent the di
 model <- glm(y ~ d, data=blkspruce_blowdown, family=binomial(link = "logit"))
 summary(model)
 ```
-Notice that d is the raw unit data of the diameter of the tree in cm. Using the current model, we would be assuming that each cm of diameter would contribute equally to whether or not the tree blows down. I believe that this would be an incorrect assumption. For example, if a tree is very small, then extra cm of diameter would affect it's odds of blowing down. However, a huge tree would be affected as much, as it would make sense for it to catch more "storm" than a small tree and blowdown anyways. So, taking the log of d would make sense here, as it would represent a proportional relationship that falls off as cm gets bigger. The bigger the tree gets, the less it's blowdown rate is affected from extra cm in diameter.
+Notice that d is the raw unit data of the diameter of the tree in cm. Using the current model, we would be assuming that each cm of diameter would contribute equally to whether or not the tree blows down. I believe that this would be an incorrect assumption. For example, if a tree is very small, then extra cm of diameter would affect it's odds of blowing down. However, a huge tree would not be affected as much, as it would make sense for it to catch more "storm" than a small tree and blowdown anyways. So, taking the log of d would make sense here, as it would represent a proportional relationship that falls off as cm gets bigger. The bigger the tree gets, the less it's blowdown rate is affected from extra cm in diameter.
 
 ```{r}
 # Logistic Regression with log(d)
